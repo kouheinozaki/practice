@@ -40,6 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label:('Home')),
+          BottomNavigationBarItem(icon: Icon(Icons.timeline), label:('Timeline'),),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label:('Chat')),
+        ],
+        fixedColor: Colors.blueAccent,
+        type: BottomNavigationBarType.fixed,),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
