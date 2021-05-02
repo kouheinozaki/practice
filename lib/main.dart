@@ -59,6 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            ElevatedButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return SubPage();
+            })), child: new Text('Subページへ'),)
           ],
         ),
       ),
@@ -66,6 +69,39 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class SubPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Subページ"),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label:('Home')),
+          BottomNavigationBarItem(icon: Icon(Icons.timeline), label:('Timeline'),),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), label:('Chat')),
+        ],
+        fixedColor: Colors.blueAccent,
+        type: BottomNavigationBarType.fixed,),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Sub"),
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).pop(),  // この画面を取り除く
+                child: Text("戻る"),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
